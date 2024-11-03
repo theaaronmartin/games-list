@@ -7,9 +7,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Plague's Game List</title>
+    <title>PlagueZaddy's Games</title>
     <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
       rel="stylesheet"
@@ -33,26 +33,30 @@
       }
     </style>
   </head>
-  <body>
+  <body class="h-screen bg-[#090909]">
     <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <div class="flex flex-col gap-20 align-center items-center bg-[#090909]">
+    <div
+      class="flex flex-col gap-20 align-center items-center bg-[#090909] pb-16"
+    >
       <a href="https://www.twitch.tv/plaguezaddy" target="_blank">
         <img
-          class="w-96 mt-16"
+          class="w-64 md:w-72 lg:w-96 mt-16"
           src="https://res.cloudinary.com/ddz9c0wp9/image/upload/v1730331571/purple-ghost-transparent_xpsiwv.png"
           alt="Logo"
         />
       </a>
       <h1 class="text-3xl text-purple-100">Completed Games</h1>
-      <div class="grid grid-cols-4 align-center gap-8">
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 align-center gap-5 md:gap-6 lg:gap-7"
+      >
         {{range .Game}} {{if .IsCompleted}}
-        <article class="card w-64">
-          <a href="{{.Link}}" target="_blank">
+        <article class="card w-52 md:w-64 lg:w-72">
+          <a href="/{{.Id}}">
             <img
               class="self-center rounded-md"
               src="{{.BoxArt}}"
@@ -63,10 +67,12 @@
         {{end}} {{end}}
       </div>
       <h1 class="text-3xl text-purple-100">Games in Queue</h1>
-      <div class="grid grid-cols-4 align-center gap-8">
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 align-center gap-5 md:gap-6 lg:gap-7"
+      >
         {{range .Game}} {{if not .IsCompleted}}
-        <article class="card w-64">
-          <a href="{{.Link}}" target="_blank">
+        <article class="card w-52 md:w-64 lg:w-72">
+          <a href="/{{.Id}}">
             <img
               class="self-center rounded-md"
               src="{{.BoxArt}}"
